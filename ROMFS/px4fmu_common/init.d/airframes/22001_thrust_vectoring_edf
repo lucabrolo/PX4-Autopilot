@@ -1,0 +1,62 @@
+#!/bin/sh
+#
+# @name Custom Thrust Vectoring EDF
+#
+# @type Quadrotor x
+# @class Copter
+# @maintainer Luca Brolo
+#
+
+. ${R}etc/init.d/rc.mc_defaults
+
+# Custom single-EDF thrust-vectoring vehicle
+
+# Control allocation geometry
+param set-default CA_AIRFRAME 15
+
+# One EDF
+param set-default CA_ROTOR_COUNT 1
+
+# EDF location relative to vehicle CG
+param set-default CA_ROTOR0_PX 0.0
+param set-default CA_ROTOR0_PY 0.0
+param set-default CA_ROTOR0_PZ 0.0
+
+# Thrust coefficient
+# TODO: replace with your measured/calculated value
+param set-default CA_ROTOR0_CT 6.5
+
+# No fixed propeller reaction torque for the TVC EDF
+param set-default CA_ROTOR0_KM 0.0
+
+# TVC control surfaces
+# TODO: change this if your mechanism uses a different number of servos
+param set-default CA_SV_CS_COUNT 4
+
+# Servo 0
+param set-default CA_SV_CS0_TYPE 12
+param set-default CA_SV_CS0_TRQ_R -0.707
+param set-default CA_SV_CS0_TRQ_P 0.707
+param set-default CA_SV_CS0_TRQ_Y 0.0
+param set-default CA_SV_CS0_TRIM 0.0
+
+# Servo 1
+param set-default CA_SV_CS1_TYPE 12
+param set-default CA_SV_CS1_TRQ_R 0.707
+param set-default CA_SV_CS1_TRQ_P 0.707
+param set-default CA_SV_CS1_TRQ_Y 0.0
+param set-default CA_SV_CS1_TRIM 0.0
+
+# Servo 2
+param set-default CA_SV_CS2_TYPE 12
+param set-default CA_SV_CS2_TRQ_R 0.707
+param set-default CA_SV_CS2_TRQ_P -0.707
+param set-default CA_SV_CS2_TRQ_Y 0.0
+param set-default CA_SV_CS2_TRIM 0.0
+
+# Servo 3
+param set-default CA_SV_CS3_TYPE 12
+param set-default CA_SV_CS3_TRQ_R -0.707
+param set-default CA_SV_CS3_TRQ_P -0.707
+param set-default CA_SV_CS3_TRQ_Y 0.0
+param set-default CA_SV_CS3_TRIM 0.0
